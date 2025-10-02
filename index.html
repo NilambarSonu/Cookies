@@ -463,13 +463,49 @@
         </div>
 
         <div class="footer">
-            <div class="footer-logo">🌾</div>
-            <h3>Mitti-AI</h3>
-            <p>Empowering Farmers with Advanced Technology</p>
-            <p>Questions? Contact us at <a href="mailto:saathi.ai.innovation@gmail.com
-">saathi.ai.innovation@gmail.com
-</a></p>
-        </div>
+  <div class="footer-logo">🌾</div>
+  <h3>Mitti-AI</h3>
+  <p>Empowering Farmers with Advanced Technology</p>
+
+  <p>
+    Questions? Contact us at
+    <a href="#" onclick="sendEmail(event)">saathi.ai.innovation@gmail.com</a>
+  </p>
+</div>
     </div>
+
+    <div class="footer">
+  <div class="footer-logo">🌾</div>
+  <h3>Mitti-AI</h3>
+  <p>Empowering Farmers with Advanced Technology</p>
+
+  <p>
+    Questions? Contact us at
+    <a href="#" onclick="sendEmail(event)">saathi.ai.innovation@gmail.com</a>
+  </p>
+</div>
+
+<script>
+  function sendEmail(e) {
+    e.preventDefault(); // stop normal link
+
+    const to = "saathi.ai.innovation@gmail.com";
+    const subject = "Mitti-AI Support Request";
+    const body = `Hello Mitti-AI team,%0D%0A%0D%0AMy name :%0D%0AMobile :%0D%0ALocation (village/district) :%0D%0ADevice ID (if any) :%0D%0AProblem / Request :%0D%0A%0D%0AThanks,%0D%0A`;
+
+    // Build mailto link
+    const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+    // Try to open mailto
+    window.location.href = mailtoLink;
+
+    // Fallback: open Gmail after short delay
+    setTimeout(() => {
+      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${encodeURIComponent(subject)}&body=${body}`;
+      window.open(gmailLink, "_blank");
+    }, 1000); // 1 second delay
+  }
+</script>
+
 </body>
 </html>
